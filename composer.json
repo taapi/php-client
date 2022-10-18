@@ -1,0 +1,8 @@
+{
+    "name": "taapi/php-client",
+    "description": "A TAAPI.IO PHP wrapper that gets you started fast",
+    "require": {
+        "php": ">=7.4",
+        "another-vendor/package": "1.*"
+    }
+}
