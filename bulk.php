@@ -26,7 +26,8 @@ class TaapiBulk
     /**
      * Set output format [default, objects]
      */
-    function setOutputFormat($outputFormat) {
+    function setOutputFormat($outputFormat)
+    {
         $this->outputFormat = $outputFormat;
     }
 
@@ -72,13 +73,22 @@ class TaapiBulk
         $response = curl_exec($curl);
         $err = curl_error($curl);
 
-        curl_close($curl);
-
-        if ($err) {
-            echo "cURL Error #:" . $err;
-        } else {
-            $result = json_decode($response);
+        // Check HTTP status code
+        if (!curl_errno($curl)) {
+            switch ($http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE)) {
+                case 200:  # OK
+                    if ($err) {
+                        echo "cURL Error #:" . $err;
+                    } else {
+                        $result = json_decode($response);
+                    }
+                    break;
+                default:
+                    echo 'Unexpected HTTP code: ', $http_code, "\n", $response;
+            }
         }
+
+        curl_close($curl);
 
         return $result;
     }
