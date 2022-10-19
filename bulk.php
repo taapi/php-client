@@ -1,6 +1,6 @@
 <?php
 
-require("./construct.php");
+require("construct.php");
 
 class TaapiBulk
 {
