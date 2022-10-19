@@ -1,6 +1,6 @@
 <?php
 
-class Taapi
+class TaapiDirect
 {
     // Properties
     public $secret;
@@ -9,6 +9,9 @@ class Taapi
         $this->secret = $secret;
     }
 
+    /**
+     * Execute: calculate indicator
+     */
     function execute($indicator, $exchange, $symbol, $interval, $params = array())
     {
         $params["secret"] = $this->secret;
