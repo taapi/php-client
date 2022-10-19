@@ -1,8 +1,21 @@
 {
     "name": "taapi/php-client",
     "description": "A TAAPI.IO PHP wrapper that gets you started fast",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Taapi\\PhpClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Brian Vilhelmsen",
+            "email": "bv@taapi.io"
+        }
+    ],
+    "minimum-stability": "stable",
     "require": {
-        "php": ">=7.4",
-        "another-vendor/package": "1.*"
+        "php": ">=7.4"
     }
 }
